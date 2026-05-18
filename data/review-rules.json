@@ -1,0 +1,47 @@
+[
+  {
+    "id": "term-responses-api",
+    "type": "terminology",
+    "severity": "medium",
+    "product": "openai",
+    "rule": "Use \"Responses API\", not \"Response API\", when referring to OpenAI's newer text generation API.",
+    "bad": "Response API",
+    "good": "Responses API"
+  },
+  {
+    "id": "mem0-infer-behavior",
+    "type": "api-gotcha",
+    "severity": "high",
+    "product": "mem0",
+    "rule": "Do not say Mem0 stores text verbatim when infer is true. With infer enabled, Mem0 extracts useful memories from messages. If exact text storage is required, mention infer: false.",
+    "bad": "Mem0 stores each message exactly as written.",
+    "good": "Mem0 can extract memories from messages by default. Use infer: false when you want to store the provided text as-is."
+  },
+  {
+    "id": "mem0-search-entity-scope",
+    "type": "api-gotcha",
+    "severity": "high",
+    "product": "mem0",
+    "rule": "Mem0 V3 search requests must include at least one entity ID such as user_id, agent_id, app_id, or run_id inside the filters object. Do not place entity IDs as top-level search options.",
+    "bad": "client.search(\"Find relevant user memories\", { user_id: \"support-user-123\", top_k: 5 })",
+    "good": "client.search(\"Find relevant user memories\", { filters: { user_id: \"support-user-123\" }, top_k: 5 })"
+  },
+  {
+    "id": "metadata-for-workflow-labels",
+    "type": "architecture",
+    "severity": "medium",
+    "product": "mem0",
+    "rule": "Use metadata for application-specific workflow labels such as ruleset, rule_type, source, severity, and product. Do not rely only on natural language text when the app needs precise filtering.",
+    "bad": "Store the rule type only inside the memory text.",
+    "good": "Store rule_type and severity as metadata fields."
+  },
+  {
+    "id": "env-vars-required",
+    "type": "code-review",
+    "severity": "medium",
+    "product": "general",
+    "rule": "Flag code examples that depend on environment variables unless the tutorial shows the required .env keys and explains how they are loaded.",
+    "bad": "const client = new OpenAI();",
+    "good": "Show OPENAI_API_KEY in .env and load it with dotenv/config."
+  }
+]
