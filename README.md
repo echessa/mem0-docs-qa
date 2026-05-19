@@ -29,7 +29,7 @@ You'll need:
 Clone the repository and install the dependencies:
 
 ```sh
-git clone https://github.com/YOUR_USERNAME/mem0-docs-qa.git
+git clone https://github.com/echessa/mem0-docs-qa.git
 cd mem0-docs-qa
 npm install
 ```
