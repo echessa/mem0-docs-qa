@@ -88,4 +88,4 @@ mem0-docs-qa/
 
 ## Notes
 
-This project is intentionally small and tutorial-focused. It is meant to demonstrate Mem0 concepts such as memory storage, metadata, scoped search, `infer: false`, and retrieval-augmented review workflows.
+This project is intentionally small and tutorial-focused. It calls the Mem0 Platform API directly with `fetch` instead of using the Mem0 JavaScript SDK, so the request bodies and endpoint structure remain visible. It demonstrates Mem0 concepts such as memory storage, metadata, scoped search, `infer: false`, and retrieval-augmented review workflows.
